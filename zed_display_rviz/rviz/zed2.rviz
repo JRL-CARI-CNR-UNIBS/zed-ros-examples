@@ -4,18 +4,25 @@ Panels:
     Name: Displays
     Property Tree Widget:
       Expanded:
-        - /Video1/Camera view1
+        - /Video1
         - /Video1/Camera view1/Visibility1
-        - /Depth1/PointCloud21
+        - /Video1/Camera view1/Visibility1/Video1
+        - /Depth1
         - /Depth1/DepthCloud1/Auto Size1
         - /Depth1/DepthCloud1/Occlusion Compensation1
+        - /Pose1
         - /Pose1/Odometry1/Covariance1
         - /Pose1/Odometry1/Covariance1/Position1
         - /Pose1/Odometry1/Covariance1/Orientation1
         - /Pose1/PoseWithCovariance1/Covariance1/Position1
         - /Pose1/PoseWithCovariance1/Covariance1/Orientation1
+        - /Pose1/Imu1
+        - /Pose1/Imu1/Status1
+        - /Mapping1
+        - /Mapping1/Fused Pointcloud1
+        - /ZedOdDisplay1
       Splitter Ratio: 0.494577020406723
-    Tree Height: 211
+    Tree Height: 429
   - Class: rviz/Selection
     Name: Selection
   - Class: rviz/Tool Properties
@@ -158,7 +165,7 @@ Visualization Manager:
       Marker Alpha: 1
       Marker Scale: 0.5
       Name: TF
-      Show Arrows: true
+      Show Arrows: false
       Show Axes: true
       Show Names: true
       Tree:
@@ -190,7 +197,7 @@ Visualization Manager:
         - Class: rviz/Camera
           Enabled: true
           Image Rendering: background and overlay
-          Image Topic: /zed2/zed_node/rgb/image_rect_color
+          Image Topic: zed2/zed_node/rgb/image_rect_color
           Name: Camera view
           Overlay Alpha: 0.5
           Queue Size: 1
@@ -228,7 +235,7 @@ Visualization Manager:
           Zoom Factor: 1
         - Class: rviz/Image
           Enabled: false
-          Image Topic: /zed2/zed_node/left/image_rect_color
+          Image Topic: zed2/zed_node/left/image_rect_color
           Max Value: 10
           Median window: 5
           Min Value: 0
@@ -240,7 +247,7 @@ Visualization Manager:
           Value: false
         - Class: rviz/Image
           Enabled: false
-          Image Topic: /zed2/zed_node/right/image_rect_color
+          Image Topic: zed2/zed_node/right/image_rect_color
           Max Value: 10
           Median window: 5
           Min Value: 0
@@ -295,13 +302,13 @@ Visualization Manager:
           Channel Name: intensity
           Class: rviz/DepthCloud
           Color: 255; 255; 255
-          Color Image Topic: /zed2/zed_node/rgb/image_rect_color
+          Color Image Topic: /zed2_node/rgb/image_rect_color
           Color Transformer: RGB8
           Color Transport Hint: raw
           Decay Time: 0
-          Depth Map Topic: /zed2/zed_node/depth/depth_registered
+          Depth Map Topic: /zed2_node/depth/depth_registered
           Depth Map Transport Hint: raw
-          Enabled: false
+          Enabled: true
           Invert Rainbow: false
           Max Color: 255; 255; 255
           Min Color: 0; 0; 0
@@ -318,10 +325,10 @@ Visualization Manager:
           Topic Filter: true
           Use Fixed Frame: true
           Use rainbow: true
-          Value: false
+          Value: true
         - Class: rviz/Image
           Enabled: true
-          Image Topic: /zed2/zed_node/depth/depth_registered
+          Image Topic: zed2/zed_node/depth/depth_registered
           Max Value: 20
           Median window: 5
           Min Value: 0
@@ -333,7 +340,7 @@ Visualization Manager:
           Value: true
         - Class: rviz/Image
           Enabled: false
-          Image Topic: /zed2/zed_node/confidence/confidence_map
+          Image Topic: zed2/zed_node/confidence/confidence_map
           Max Value: 100
           Median window: 5
           Min Value: 0
@@ -364,7 +371,7 @@ Visualization Manager:
               Scale: 10
               Value: true
             Value: true
-          Enabled: false
+          Enabled: true
           Keep: 1
           Name: Odometry
           Position Tolerance: 0
@@ -381,7 +388,7 @@ Visualization Manager:
             Value: Arrow
           Topic: /zed2/zed_node/odom
           Unreliable: true
-          Value: false
+          Value: true
         - Alpha: 1
           Axes Length: 1
           Axes Radius: 0.10000000149011612
@@ -418,7 +425,7 @@ Visualization Manager:
               Scale: 10
               Value: true
             Value: true
-          Enabled: false
+          Enabled: true
           Head Length: 0.10000000149011612
           Head Radius: 0.05000000074505806
           Name: PoseWithCovariance
@@ -428,7 +435,7 @@ Visualization Manager:
           Shape: Arrow
           Topic: /zed2/zed_node/pose_with_covariance
           Unreliable: false
-          Value: false
+          Value: true
         - Alpha: 1
           Buffer Length: 1
           Class: rviz/Path
@@ -494,12 +501,12 @@ Visualization Manager:
             y_scale: 1
             z_scale: 1
           Class: rviz_imu_plugin/Imu
-          Enabled: false
+          Enabled: true
           Name: Imu
           Queue Size: 10
           Topic: /zed2/zed_node/imu/data
           Unreliable: true
-          Value: false
+          Value: true
           fixed_frame_orientation: true
       Enabled: true
       Name: Pose
@@ -585,7 +592,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 1.812248945236206
+      Distance: 1.037705898284912
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -601,9 +608,9 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.9303975105285645
+      Pitch: 0.5053975582122803
       Target Frame: base_link
-      Yaw: 3.2586183547973633
+      Yaw: 2.7036190032958984
     Saved: ~
 Window Geometry:
   Camera view:
@@ -614,12 +621,12 @@ Window Geometry:
     collapsed: false
   Displays:
     collapsed: false
-  Height: 1016
+  Height: 1043
   Hide Left Dock: false
   Hide Right Dock: true
   Left camera:
     collapsed: false
-  QMainWindow State: 000000ff00000000fd0000000400000000000001cf0000039efc0200000013fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000005c00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073010000003d00000110000000c900fffffffb00000012004400650070007400680020006d0061007001000001530000014e0000001600fffffffb0000001600430061006d0065007200610020007600690065007701000002a7000001340000001600fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000000a0049006d00610067006501000002400000010f0000000000000000fb0000000a0049006d006100670065000000028b000000c40000000000000000fb0000000a0049006d006100670065010000028a000000c50000000000000000fb0000000a0049006d00610067006500000002b30000009c0000000000000000fb0000000a0049006d006100670065010000028b000000c40000000000000000fb0000001c0043006f006e0066006900640065006e006300650020006d0061007002000005000000019300000280000001e0fb0000001c0043006f006e0066006900640065006e006300650020006d00610070020000058200000195000001ea0000010dfb00000016004c006500660074002000630061006d00650072006102000002450000025800000280000001e0fb0000001800520069006700680074002000630061006d00650072006102000004300000025800000280000001e0000000010000010f000003c6fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073000000003b000003c6000000a400fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e100000197000000030000073f00000040fc0100000002fb0000000800540069006d006500000000000000073f0000041800fffffffb0000000800540069006d00650100000000000004500000000000000000000005630000039e00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd0000000400000000000001be000001eafc0200000010fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000005c00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073010000003d000001ea000000c900fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000000a0049006d00610067006501000002400000010f0000000000000000fb0000000a0049006d006100670065000000028b000000c40000000000000000fb0000000a0049006d006100670065010000028a000000c50000000000000000fb0000000a0049006d00610067006500000002b30000009c0000000000000000fb0000000a0049006d006100670065010000028b000000c40000000000000000fb0000001c0043006f006e0066006900640065006e006300650020006d0061007002000005000000019500000280000001e0fb00000016004c006500660074002000630061006d00650072006102000002450000025800000280000001e0fb0000001800520069006700680074002000630061006d00650072006102000004300000025800000280000001e0000000010000010f000003c6fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073000000003b000003c6000000a400fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e1000001970000000300000738000001c9fc0100000005fb0000001600430061006d0065007200610020007600690065007701000000000000038d0000008b00fffffffb00000012004400650070007400680020006d006100700100000393000003a50000008000fffffffb0000001c0043006f006e0066006900640065006e006300650020006d0061007001000004b2000002860000000000000000fb0000000800540069006d006500000000000000073f0000041800fffffffb0000000800540069006d0065010000000000000450000000000000000000000574000001ea00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Right camera:
     collapsed: false
   Selection:
@@ -632,4 +639,4 @@ Window Geometry:
     collapsed: true
   Width: 1848
   X: 72
-  Y: 27
+  Y: 0

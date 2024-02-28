@@ -25,7 +25,7 @@
 #ifndef ZED_OD_PLUGIN_HPP
 #define ZED_OD_PLUGIN_HPP
 
-#include <zed_interfaces/ObjectsStamped.h>
+#include <zed_msgs/ObjectsStamped.h>
 
 #include <rviz/message_filter_display.h>
 #include <rviz/properties/bool_property.h>
@@ -47,7 +47,7 @@ namespace displays
 typedef std::shared_ptr<ZedOdInfo> objectPtr;
 
 class ZedOdDisplay : public
-        rviz::MessageFilterDisplay<zed_interfaces::ObjectsStamped> {
+        rviz::MessageFilterDisplay<zed_msgs::ObjectsStamped> {
     Q_OBJECT
 
 public:
@@ -58,8 +58,8 @@ public:
     void reset() override;
 
 private:
-    void processMessage(const zed_interfaces::ObjectsStamped::ConstPtr& msg);
-    void createOrUpdateObject(zed_interfaces::Object& obj);
+    void processMessage(const zed_msgs::ObjectsStamped::ConstPtr& msg);
+    void createOrUpdateObject(zed_msgs::Object& obj);
     void invalidateObjs();
     void removeNotValidObjs();
 

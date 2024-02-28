@@ -8,11 +8,11 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 find_package(catkin REQUIRED 
   COMPONENTS 
   rviz
-  zed_interfaces
+  zed_msgs
 )
 catkin_package(
   CATKIN_DEPENDS
-  zed_interfaces
+  zed_msgs
 )
 
 include_directories(${catkin_INCLUDE_DIRS})
@@ -47,6 +47,7 @@ set(SRC_FILES
 )
 
 set(INC_FILES
+  src/plugin/include/zed_body_parts.hpp
   src/plugin/include/zed_od_display.hpp
   src/plugin/include/zed_od_info.hpp
 )
@@ -61,7 +62,7 @@ add_library(${PROJECT_NAME}
 )
 
 target_include_directories(${PROJECT_NAME} PUBLIC
-  ${zed_interfaces_INCLUDE_DIRS}
+  ${zed_msgs_INCLUDE_DIRS}
   ${OGRE_INCLUDE_DIRS}
   ${Qt5Widgets_INCLUDE_DIRS}
 )

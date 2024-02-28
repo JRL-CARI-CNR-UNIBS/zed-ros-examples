@@ -28,7 +28,7 @@
 #include <string>
 #include <QObject>
 
-#include <zed_interfaces/ObjectsStamped.h>
+#include <zed_msgs/ObjectsStamped.h>
 
 #include <rviz/ogre_helpers/shape.h>
 #include <rviz/ogre_helpers/billboard_line.h>
@@ -53,13 +53,13 @@ class ZedOdInfo : public QObject {
     Q_OBJECT
 
 public:
-    explicit ZedOdInfo(zed_interfaces::Object &obj,
+    explicit ZedOdInfo(zed_msgs::Object &obj,
                        Ogre::SceneManager *scene_manager, Ogre::SceneNode *parent_node=NULL);
     virtual ~ZedOdInfo();
 
     void updateShowLabel(bool show);
     void updateAlpha(float alpha);
-    void updateInfo(zed_interfaces::Object& obj);
+    void updateInfo(zed_msgs::Object& obj);
     void updateShowBBox(bool show);
     void updateShowSkeleton(bool show);
     void updateLinkSize(float newval);
@@ -109,89 +109,6 @@ private:
 
     // Unique identifier for each object
     static uint64_t mObjIdx;
-};
-
-enum class BODY_PARTS {
-    NOSE = 0,
-    NECK = 1,
-    RIGHT_SHOULDER = 2,
-    RIGHT_ELBOW = 3,
-    RIGHT_WRIST = 4,
-    LEFT_SHOULDER = 5,
-    LEFT_ELBOW = 6,
-    LEFT_WRIST = 7,
-    RIGHT_HIP = 8,
-    RIGHT_KNEE = 9,
-    RIGHT_ANKLE = 10,
-    LEFT_HIP = 11,
-    LEFT_KNEE = 12,
-    LEFT_ANKLE = 13,
-    RIGHT_EYE = 14,
-    LEFT_EYE = 15,
-    RIGHT_EAR = 16,
-    LEFT_EAR = 17,
-    LAST = 18
-};
-
-const std::vector<std::pair< BODY_PARTS, BODY_PARTS>> BODY_BONES
-{
-    {
-        BODY_PARTS::NOSE, BODY_PARTS::NECK
-    },
-    {
-        BODY_PARTS::NECK, BODY_PARTS::RIGHT_SHOULDER
-    },
-    {
-        BODY_PARTS::RIGHT_SHOULDER, BODY_PARTS::RIGHT_ELBOW
-    },
-    {
-        BODY_PARTS::RIGHT_ELBOW, BODY_PARTS::RIGHT_WRIST
-    },
-    {
-        BODY_PARTS::NECK, BODY_PARTS::LEFT_SHOULDER
-    },
-    {
-        BODY_PARTS::LEFT_SHOULDER, BODY_PARTS::LEFT_ELBOW
-    },
-    {
-        BODY_PARTS::LEFT_ELBOW, BODY_PARTS::LEFT_WRIST
-    },
-    {
-        BODY_PARTS::RIGHT_SHOULDER, BODY_PARTS::RIGHT_HIP
-    },
-    {
-        BODY_PARTS::RIGHT_HIP, BODY_PARTS::RIGHT_KNEE
-    },
-    {
-        BODY_PARTS::RIGHT_KNEE, BODY_PARTS::RIGHT_ANKLE
-    },
-    {
-        BODY_PARTS::LEFT_SHOULDER, BODY_PARTS::LEFT_HIP
-    },
-    {
-        BODY_PARTS::LEFT_HIP, BODY_PARTS::LEFT_KNEE
-    },
-    {
-        BODY_PARTS::LEFT_KNEE, BODY_PARTS::LEFT_ANKLE
-    },
-    {
-        BODY_PARTS::RIGHT_SHOULDER, BODY_PARTS::LEFT_SHOULDER
-    },
-    {
-        BODY_PARTS::RIGHT_HIP, BODY_PARTS::LEFT_HIP
-    },
-    {
-        BODY_PARTS::NOSE, BODY_PARTS::RIGHT_EYE
-    },
-    {
-        BODY_PARTS::RIGHT_EYE, BODY_PARTS::RIGHT_EAR
-    },
-    {
-        BODY_PARTS::NOSE, BODY_PARTS::LEFT_EYE
-    },
-    {
-        BODY_PARTS::LEFT_EYE, BODY_PARTS::LEFT_EAR
-    }
 };
 
 } // namespace displays

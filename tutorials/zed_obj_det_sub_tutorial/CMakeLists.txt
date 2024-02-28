@@ -11,7 +11,7 @@ IF(NOT CMAKE_BUILD_TYPE)
 ENDIF(NOT CMAKE_BUILD_TYPE)
 
 ## Find catkin and any catkin packages
-find_package(catkin REQUIRED COMPONENTS roscpp zed_interfaces)
+find_package(catkin REQUIRED COMPONENTS roscpp zed_msgs)
 
 ## Declare a catkin package
 catkin_package()
